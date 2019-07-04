@@ -23,5 +23,42 @@ public class Controller {
        return serv.getRepositoryName(username);
     }
 
+    @GetMapping("/isRepositoryPresent/{username}/{repo}")
+    public String isRepoPresent(@PathVariable String username,@PathVariable String repo)
+    {
+       System.out.println(username);
+       System.out.println(repo);
+        return serv.isRepoPresent(username,repo);
+    }
+
+    @GetMapping("/getProjects/{username}")
+    public List<String> getProjectsNames(@PathVariable String username)
+    {
+         return serv.getProjectNames(username);
+    }
+
+    @GetMapping("/getUserDetails/{id}")
+    public List<String>  getUserDeails(@PathVariable int id)
+    {
+         return serv.getProjectUser(id);
+    }
+
+    @GetMapping("/getUsedLanguages/{id}")
+    public String getLanguagedUsed(@PathVariable int id)
+    {
+       return  serv.getLanguagedUsed(id);
+    }
+
+    @GetMapping("/isProjectPrsent/{username}/{project}")
+    public String isProjectPresent(@PathVariable String username,@PathVariable String project)
+    {
+        return serv.isProjectPresent(username,project);
+    }
+
+    @GetMapping("/projectCount/{username}")
+    public int projectCount(@PathVariable String username)
+    {
+        return serv.projectCount(username);
+    }
 
 }
